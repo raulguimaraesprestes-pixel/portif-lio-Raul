@@ -1,0 +1,513 @@
+/* Importação direta no CSS para evitar bloqueios do HTML */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&display=swap');
+
+:root {
+  --ink: #150a22;
+  --violet-deep: #2c0f4d;
+  --violet: #5d1fa3;
+  --violet-mid: #8a3fd6;
+  --violet-bright: #9a54e0;
+  --lavender: #d9c2f5;
+  --parchment: #f4eefa;
+  --gold: #c9a25a;
+  --gold-soft: #e3c98a;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--violet-deep);
+  color: var(--parchment);
+  font-family: 'EB Garamond', serif;
+  overflow-x: hidden;
+  line-height: 1.5;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+::selection { background: var(--gold-soft); color: var(--ink); }
+
+a {
+  color: var(--gold-soft);
+  text-decoration: none;
+  transition: opacity 0.2s, transform 0.2s;
+}
+a:hover { opacity: 0.8; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--gold-soft); outline-offset: 3px; }
+
+h1, h2, h3, h4 {
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1.5rem 2rem;
+  background: rgba(21, 10, 34, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(201, 162, 90, 0.1);
+}
+
+.navbar a {
+  font-family: 'Cinzel', serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.navbar a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gold-soft);
+  transition: width 0.3s ease;
+}
+
+.navbar a:hover::after {
+  width: 100%;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-title h2 {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.section-title .label {
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: var(--gold-soft);
+  opacity: 0.9;
+}
+
+.section-title .description {
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--lavender);
+  margin-top: 0.5rem;
+}
+
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(ellipse 120% 90% at 15% 10%, rgba(154,84,224,0.55), transparent 55%),
+    radial-gradient(ellipse 100% 80% at 85% 100%, rgba(93,31,163,0.7), transparent 60%),
+    linear-gradient(160deg, var(--violet-mid) 0%, var(--violet-deep) 65%, var(--ink) 100%);
+  overflow: hidden;
+  padding: 6rem 6vw 4rem;
+  margin-top: 60px;
+}
+
+/* Remove fundo branco das imagens */
+img {
+  background: transparent;
+}
+
+.hero .angel-left,
+.skill-card .symbol-img,
+.project-card .project-img,
+.contact-container .contact-img,
+.catedral-wrapper .featured-img,
+.catedral-wrapper .angel-catedral {
+  mix-blend-mode: darken;
+  filter: brightness(0.9) contrast(1.4) drop-shadow(0 0 2px rgba(0,0,0,0.5));
+}
+
+.hero .angel-left {
+  position: absolute;
+  top: 10%;
+  width: min(22vw, 250px);
+  opacity: 0.35;
+  pointer-events: none;
+  left: 2vw;
+  animation: floatSlow 9s ease-in-out infinite;
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-16px); }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  text-align: center;
+}
+
+.hero-content .hero-subtitle {
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  color: var(--gold-soft);
+  margin-bottom: 1.5rem;
+}
+
+/* Fonte cursiva Great Vibes para o título principal */
+body .hero-content h1.main-title {
+  font-family: 'Great Vibes', cursive !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+  letter-spacing: 0px !important;
+  text-transform: none !important;
+  font-size: clamp(3.5rem, 9vw, 6rem) !important;
+  line-height: 1.1;
+  color: var(--gold-soft) !important;
+  text-shadow: 0 0 20px rgba(227,201,138,0.4) !important;
+  display: block !important;
+  visibility: visible !important;
+}
+
+.hero-quote {
+  margin: 2.5rem auto;
+  font-style: italic;
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  line-height: 1.6;
+  color: var(--lavender);
+  max-width: 45ch;
+  border-left: 2px solid var(--gold-soft);
+  padding: 0.2rem 0 0.2rem 1.5rem;
+  text-align: left;
+}
+
+.hero-quote cite {
+  display: block;
+  margin-top: 0.8rem;
+  font-style: normal;
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.scroll-link {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Cinzel', serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--lavender);
+  opacity: 0.75;
+  margin-top: 1rem;
+  border-bottom: 1px solid transparent;
+}
+.scroll-link:hover {
+  border-bottom: 1px solid var(--gold-soft);
+  opacity: 1;
+}
+
+.section {
+  position: relative;
+  padding: 6rem 6vw;
+  background: var(--violet-deep);
+  border-bottom: 1px solid rgba(201, 162, 90, 0.08);
+}
+
+.about-container {
+  max-width: 960px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 3rem;
+  align-items: center;
+}
+
+/* Anjo posicionado DENTRO da catedral */
+.catedral-wrapper {
+  position: relative;
+  width: 100%;
+  display: inline-block;
+}
+
+.catedral-wrapper .featured-img {
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  border: 1px solid rgba(201, 162, 90, 0.25);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.6);
+  position: relative;
+  z-index: 2;
+}
+
+.catedral-wrapper .angel-catedral {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  opacity: 0.5;
+  z-index: 3;
+  mix-blend-mode: screen;
+  filter: brightness(1.2) contrast(1.1);
+  pointer-events: none;
+}
+
+.info-blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.info-card {
+  background: linear-gradient(160deg, rgba(154,84,224,0.12), rgba(154,84,224,0.02));
+  border: 1px solid rgba(217,194,245,0.15);
+  padding: 1.6rem;
+  border-radius: 2px;
+}
+
+.info-card h3 {
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  color: var(--gold-soft);
+  margin-bottom: 0.6rem;
+  text-transform: uppercase;
+}
+
+.info-card p, .info-card li {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--lavender);
+}
+.info-card ul {
+  list-style: none;
+}
+.info-card li::before {
+  content: "✦ ";
+  color: var(--gold-soft);
+  margin-right: 0.5rem;
+}
+
+.skills-grid {
+  max-width: 760px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+}
+
+.skill-card {
+  padding: 3rem 2rem;
+  border: 1px solid rgba(201,162,90,0.3);
+  background: rgba(21,10,34,0.3);
+  text-align: center;
+  position: relative;
+}
+
+.skill-card .symbol-img {
+  display: block;
+  max-width: 50px;
+  height: auto;
+  margin: 0 auto 0.5rem;
+}
+
+.skill-card .symbol-icon {
+  display: block;
+  font-size: 1.8rem;
+  color: var(--gold-soft);
+  margin-bottom: 0.8rem;
+}
+
+.skill-card h3 {
+  font-size: 1.3rem;
+  color: #fff;
+  margin-bottom: 0.6rem;
+}
+
+.skill-card p {
+  color: var(--lavender);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.projects-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.project-card {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2.5rem;
+  border: 1px solid rgba(217,194,245,0.15);
+  background: linear-gradient(160deg, rgba(93,31,163,0.2), rgba(21,10,34,0.5));
+  padding: 2.5rem;
+  align-items: center;
+}
+
+.project-card .project-img {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border: 1px solid rgba(217,194,245,0.1);
+}
+
+.project-info h3 {
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 0.8rem;
+}
+
+.project-info p {
+  color: var(--lavender);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.tags span {
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+  background: rgba(138, 63, 214, 0.2);
+  border: 1px solid rgba(201, 162, 90, 0.3);
+  padding: 0.3rem 0.7rem;
+  border-radius: 2px;
+}
+
+.contact-container {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-container .contact-img {
+  max-width: 120px;
+  height: auto;
+  margin-bottom: 2.5rem;
+  filter: drop-shadow(0 0 15px rgba(154,84,224,0.3));
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.contact-links a {
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.8rem 2.2rem;
+  border: 1px solid var(--gold-soft);
+  background: rgba(21, 10, 34, 0.5);
+}
+
+.contact-links a:hover {
+  background: var(--gold-soft);
+  color: var(--ink);
+  box-shadow: 0 0 20px rgba(227, 201, 138, 0.3);
+  transform: translateY(-2px);
+}
+
+footer {
+  text-align: center;
+  padding: 3.5rem;
+  background: var(--ink);
+  border-top: 1px solid rgba(201, 162, 90, 0.15);
+}
+
+footer p {
+  font-family: 'Cinzel', serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.25em;
+  color: var(--lavender);
+  opacity: 0.6;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    gap: 1rem;
+    padding: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .section {
+    padding: 4rem 5vw;
+  }
+
+  .section-title {
+    margin-bottom: 2.5rem;
+  }
+
+  .hero {
+    margin-top: 80px;
+  }
+
+  .hero .angel-left {
+    opacity: 0.15;
+    width: 80px;
+    top: auto;
+    bottom: 5%;
+    left: 4vw;
+  }
+
+  .catedral-wrapper .angel-catedral {
+    width: 35%;
+  }
+
+  .contact-links {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+
+  .contact-links a {
+    padding: 1rem;
+    text-align: center;
+  }
+}
