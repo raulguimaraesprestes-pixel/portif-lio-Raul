@@ -140,18 +140,18 @@ h1, h2, h3, h4 {
 }
 
 .hero h1 {
-  font-family: fantasy !important;
-  font-weight: 400 !important; 
+  font-family: 'Tangerine', cursive !important;
+  font-weight: 700 !important; 
   font-style: normal !important;
   letter-spacing: 2px !important;
   text-transform: none !important;
-  font-size: clamp(3.5rem, 9vw, 6.5rem) !important;
+  font-size: clamp(4rem, 12vw, 8rem) !important;
   line-height: 1.1;
   color: var(--gold-soft) !important;
   text-shadow: 0 0 25px rgba(217,194,245,0.3);
   border-spacing: 0;
   border-collapse: collapse;
-  text-align: left;
+  text-align: center;
   font-size-adjust: none;
   overflow: auto;
   object-fit: scale-down;
