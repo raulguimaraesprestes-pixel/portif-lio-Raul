@@ -94,22 +94,25 @@ h1, h2, h3, h4 {
   padding: 6rem 6vw 4rem;
 }
 
-.hero .angel-left, 
-.skill-card .symbol-img, 
-.project-card .project-img, 
+/* Removido o mix-blend-mode: multiply daqui.
+   Ele multiplicava a cor de cada imagem pela cor do fundo (roxo bem escuro),
+   e o resultado dessa multiplicação fica quase preto — por isso as imagens
+   "desapareciam" mesmo estando carregadas corretamente. */
+.hero .angel-left,
+.skill-card .symbol-img,
+.project-card .project-img,
 .contact-container .contact-img,
 .catedral-wrapper .featured-img,
 .catedral-wrapper .angel-catedral {
-  mix-blend-mode: multiply;
-  filter: contrast(1.5) brightness(1.05);
+  filter: contrast(1.1) brightness(1.05);
 }
 
 .hero .angel-left {
   position: absolute;
   top: 6%;
   width: min(32vw, 380px);
-  opacity: 0.35;
-  filter: drop-shadow(0 6px 18px rgba(0,0,0,0.4)) contrast(1.5) brightness(1.05);
+  opacity: 0.5;
+  filter: drop-shadow(0 6px 18px rgba(0,0,0,0.4)) contrast(1.1) brightness(1.05);
   pointer-events: none;
   left: 0.5vw;
   animation: floatSlow 9s ease-in-out infinite;
@@ -237,12 +240,13 @@ h1, h2, h3, h4 {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  opacity: 0.35;
+  opacity: 0.5;
   z-index: 1;
   pointer-events: none;
   animation: floatSlow 11s ease-in-out infinite reverse;
-  mix-blend-mode: multiply;
-  filter: grayscale(1) contrast(15) brightness(0.6);
+  /* contrast estava em 15 (1500%), o que empurrava a imagem quase toda
+     pra preto ou branco puro e a fazia sumir. Reduzido para um valor normal. */
+  filter: grayscale(1) contrast(1.4) brightness(0.95);
 }
 
 .info-blocks {
@@ -432,7 +436,7 @@ footer p {
 @media (max-width: 768px) {
   .section { padding: 4rem 5vw; }
   .section-title { margin-bottom: 2.5rem; }
-  .hero .angel-left { opacity: 0.15; width: 130px; top: auto; bottom: 5%; left: 1vw; }
+  .hero .angel-left { opacity: 0.25; width: 130px; top: auto; bottom: 5%; left: 1vw; }
   .catedral-wrapper .angel-catedral { width: 100%; top: 0; }
   .contact-links { flex-direction: column; gap: 1rem; align-items: stretch; }
   .contact-links a { padding: 1rem; text-align: center; }
