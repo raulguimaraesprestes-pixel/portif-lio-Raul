@@ -140,7 +140,7 @@ h1, h2, h3, h4 {
 }
 
 .hero h1 {
-  font-family: 'Monsieur La Doulaise', serif !important;
+  font-family: fantasy !important;
   font-weight: 400 !important; 
   font-style: normal !important;
   letter-spacing: 2px !important;
