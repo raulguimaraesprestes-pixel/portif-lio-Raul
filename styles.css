@@ -94,16 +94,14 @@ h1, h2, h3, h4 {
   padding: 6rem 6vw 4rem;
 }
 
-/* Removido o mix-blend-mode: multiply daqui.
-   Ele multiplicava a cor de cada imagem pela cor do fundo (roxo bem escuro),
-   e o resultado dessa multiplicação fica quase preto — por isso as imagens
-   "desapareciam" mesmo estando carregadas corretamente. */
+/* O mix-blend-mode: multiply multiplica as cores da imagem com o fundo, tornando o fundo branco transparente */
 .hero .angel-left,
 .skill-card .symbol-img,
 .project-card .project-img,
 .contact-container .contact-img,
 .catedral-wrapper .featured-img,
 .catedral-wrapper .angel-catedral {
+  mix-blend-mode: multiply;
   filter: contrast(1.1) brightness(1.05);
 }
 
@@ -244,8 +242,6 @@ h1, h2, h3, h4 {
   z-index: 1;
   pointer-events: none;
   animation: floatSlow 11s ease-in-out infinite reverse;
-  /* contrast estava em 15 (1500%), o que empurrava a imagem quase toda
-     pra preto ou branco puro e a fazia sumir. Reduzido para um valor normal. */
   filter: grayscale(1) contrast(1.4) brightness(0.95);
 }
 
